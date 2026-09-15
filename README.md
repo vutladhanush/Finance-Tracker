@@ -21,3 +21,24 @@ The application allows users to manage their income, expenses, categories, and f
 - RESTful APIs
 - MySQL Database
 - Input Validation
+## Application Screenshots
+
+### Home Page
+
+![FinTrack Home Page](screenshots/home-page.png)
+
+### Login Page
+
+![FinTrack Login Page](screenshots/login-page.png)
+
+### Signup Page
+
+![FinTrack Signup Page](screenshots/signup-page.png)
+
+### Dashboard
+
+![FinTrack Dashboard](screenshots/dashboard.png)
+
+### API Testing
+
+![Postman API Testing](screenshots/postman.png)
