@@ -73,13 +73,6 @@ The application allows users to manage their income, expenses, categories, and f
 - Postman
 - Git
 - GitHub
-
-Yes — this is correct. ✅
-
-Add exactly this as **Section 5 — Application Architecture** in your `README.md`.
-
-One small improvement: your architecture diagram doesn't explicitly show the **Entity Layer**, even though you explain it below. That's okay, but for consistency I recommend this version:
-
  
 ## Application Architecture
 
@@ -141,5 +134,93 @@ MySQL Database
 * Handles user authentication
 * Generates and validates JWT tokens
 * Protects secured API endpoints
+
+ 
+
+### 1. Authentication
+
+The authentication module provides secure access to the application.
+
+Features:
+
+- User registration
+- User login
+- BCrypt password encryption
+- JWT token generation
+- JWT-based authentication
+- Stateless authentication
+
+---
+
+### 2. User Management
+
+The user module manages registered user information.
+
+Features:
+
+- Create users
+- Retrieve user information
+- User authentication
+- User-specific data access
+
+---
+
+### 3. Category Management
+
+Users can organize their transactions using different categories.
+
+Example categories:
+
+- Food
+- Travel
+- Shopping
+- Salary
+- Bills
+- Entertainment
+
+Operations:
+
+- Create category
+- View categories
+- Update category
+- Delete category
+
+---
+
+### 4. Transaction Management
+
+Users can manage both income and expense transactions.
+
+Each transaction contains:
+
+- Amount
+- Transaction type
+- Description
+- Transaction date
+- Category
+- User
+
+Operations:
+
+- Create transaction
+- View transactions
+- View transaction by ID
+- Update transaction
+- Delete transaction
+
+---
+
+### 5. Dashboard
+
+The dashboard provides an overview of the user's financial activity.
+
+It displays:
+
+- Total Income
+- Total Expenses
+- Current Balance
+- Transaction History
+- Financial Summary
+ 
  
 
