@@ -42,3 +42,34 @@ The application allows users to manage their income, expenses, categories, and f
 ### API Testing
 
 ![Postman API Testing](screenshots/postman.png)
+
+## Tech Stack
+
+### Backend
+
+- Java
+- Spring Boot
+- Spring Security
+- Spring Data JPA
+- Hibernate
+- JWT Authentication
+- BCrypt
+- Maven
+- MySQL
+
+### Frontend
+
+- React.js
+- JavaScript
+- HTML
+- CSS
+- Vite
+- Lucide React
+
+### Tools
+
+- IntelliJ IDEA
+- Visual Studio Code
+- Postman
+- Git
+- GitHub
