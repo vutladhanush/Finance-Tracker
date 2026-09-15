@@ -222,5 +222,201 @@ It displays:
 - Transaction History
 - Financial Summary
  
+ ## Section 7 — Database Design
+
+Add this **below the Main Modules section**:
+
+ 
+## Database Design
+
+The application uses MySQL for data persistence.
+
+### Database Relationships
+
+ 
+User
+ |
+ | 1 : N
+ ↓
+Transaction
+ |
+ | N : 1
+ ↓
+Category
  
 
+### User
+
+Stores registered user information.
+
+Fields:
+
+* `id`
+* `name`
+* `email`
+* `password`
+
+### Category
+
+Stores transaction categories.
+
+Fields:
+
+* `id`
+* `name`
+* `description`
+
+### Transaction
+
+Stores financial transaction information.
+
+Fields:
+
+* `id`
+* `amount`
+* `type`
+* `description`
+* `transactionDate`
+* `userId`
+* `categoryId`
+
+### Transaction Types
+
+The application supports two transaction types:
+
+* `INCOME`
+* `EXPENSE`
+
+ 
+## Authentication Flow
+
+FinTrack uses JWT-based authentication with Spring Security.
+
+ 
+User
+  |
+  ↓
+Login
+  |
+  ↓
+Login API
+  |
+  ↓
+Verify Email & Password
+  |
+  ↓
+BCrypt Password Verification
+  |
+  ↓
+Generate JWT Token
+  |
+  ↓
+Return JWT Token
+  |
+  ↓
+Frontend Stores Token
+  |
+  ↓
+Bearer Token Sent With API Requests
+  |
+  ↓
+JWT Authentication Filter
+  |
+  ↓
+Authenticated User
+  |
+  ↓
+Access Protected APIs
+ 
+
+### Authentication Process
+
+1. User enters email and password.
+2. Frontend sends the credentials to the login API.
+3. Backend verifies the user's credentials.
+4. BCrypt is used to verify the password.
+5. A JWT token is generated after successful authentication.
+6. The token is returned to the frontend.
+7. The frontend stores the JWT token.
+8. The token is sent with subsequent protected API requests.
+9. Spring Security validates the JWT token.
+10. Authenticated users can access protected resources.
+
+ 
+ 
+## API Endpoints
+
+### Authentication
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/auth/login` | User login |
+
+---
+
+### Users
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/users` | Create a new user |
+| GET | `/api/users` | Get users |
+
+---
+
+### Categories
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/categories` | Get all categories |
+| POST | `/api/categories` | Create a category |
+| PUT | `/api/categories/{id}` | Update a category |
+| DELETE | `/api/categories/{id}` | Delete a category |
+
+---
+
+### Transactions
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/transactions` | Get all transactions |
+| GET | `/api/transactions/{id}` | Get transaction by ID |
+| POST | `/api/transactions` | Create a transaction |
+| PUT | `/api/transactions/{id}` | Update a transaction |
+| DELETE | `/api/transactions/{id}` | Delete a transaction |
+ 
+
+## Project Structure
+
+ 
+Finance-Tracker/
+│
+├── backend/
+│   └── finance-backend/
+│       ├── src/
+│       │   └── main/
+│       │       ├── java/
+│       │       └── resources/
+│       │
+│       ├── pom.xml
+│       └── ...
+│
+├── finance-frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── services/
+│   │   ├── App.jsx
+│   │   ├── App.css
+│   │   └── main.jsx
+│   │
+│   ├── package.json
+│   └── ...
+│
+├── screenshots/
+│   ├── home-page.png
+│   ├── login-page.png
+│   ├── signup-page.png
+│   ├── dashboard.png
+│   └── postman.png
+│
+├── .gitignore
+└── README.md
