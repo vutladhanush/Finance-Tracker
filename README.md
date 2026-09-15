@@ -40,9 +40,7 @@ Users can manage income, expenses, categories, and transactions through a simple
 
 ![Dashboard](screenshots/dashboard.png)
 
-### Postman
-
-![Postman](screenshots/postman.png)
+ 
 
 ---
 
