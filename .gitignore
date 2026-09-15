@@ -1,0 +1,14 @@
+target/
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+
+node_modules/
+dist/
+
+.env
+application-local.properties
+
+*.log
