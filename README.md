@@ -1,220 +1,103 @@
-# FinTrack - Expense Tracker
+# 📊 FinTrack - Full-Stack Expense Tracker
 
-FinTrack is a full-stack Expense Tracker application built using **Java Spring Boot, React.js, and MySQL**.
-
-Users can manage income, expenses, categories, and transactions through a simple web application.
+FinTrack is a secure, full-stack Expense Tracker application built using **Java Spring Boot, React.js, and MySQL**. It allows users to easily manage income, expenses, categories, and personal transactions through a clean and responsive web interface.
 
 ---
 
-## Features
+## 🚀 Features
 
-* User Signup & Login
-* JWT Authentication
-* BCrypt Password Encryption
-* Category Management
-* Income & Expense Management
-* Add, Update & Delete Transactions
-* Transaction History
-* User-specific Transactions
-* Financial Summary
-* Input Validation
-* RESTful APIs
+* **Secure Authentication:** User Signup & Login powered by JWT (JSON Web Tokens) and BCrypt password encryption.
+* **Category Management:** Create, view, update, and delete custom income/expense categories.
+* **Transaction Tracking:** Add, update, view, and delete user-specific transactions.
+* **Financial Dashboard:** Real-time summary showing Total Income, Total Expenses, and Current Balance.
+* **Robust Backend:** Data persistence via Spring Data JPA/Hibernate, strict input validation, and RESTful API architecture.
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
 ### Home Page
-
 ![Home Page](screenshots/home-page.png)
 
-### Login
-
+### Login & Signup
 ![Login Page](screenshots/login-page.png)
-
-### Signup
-
 ![Signup Page](screenshots/signup-page.png)
 
 ### Dashboard
-
 ![Dashboard](screenshots/dashboard.png)
 
- 
-
 ---
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 **Backend**
-
-* Java
-* Spring Boot
-* Spring Security
-* Spring Data JPA
-* Hibernate
-* JWT
-* BCrypt
-* MySQL
-* Maven
+* Java & Spring Boot
+* Spring Security & Spring Data JPA
+* Hibernate & MySQL
+* JWT (JSON Web Tokens) & BCrypt
+* Apache Maven
 
 **Frontend**
+* React.js & JavaScript
+* HTML5 & CSS3
+* Vite (Build Tool)
+* Lucide React (Icons)
 
-* React.js
-* JavaScript
-* HTML
-* CSS
-* Vite
-* Lucide React
-
-**Tools**
-
-* IntelliJ IDEA
-* VS Code
-* Postman
-* Git
-* GitHub
+**Tools Used**
+* IntelliJ IDEA & VS Code
+* Postman (API Testing)
+* Git & GitHub
 
 ---
 
-## Architecture
+## 📐 Architecture & Database
 
+### System Flow
 ```text
-React.js
-   ↓
-REST API
-   ↓
-Spring Boot
-   ↓
-Controller
-   ↓
-Service
-   ↓
-Repository
-   ↓
-JPA / Hibernate
-   ↓
-MySQL
+React.js (Frontend) ➔ REST APIs ➔ Controller ➔ Service ➔ Repository ➔ JPA/Hibernate ➔ MySQL (Database)
 ```
 
----
-
-## Modules
-
-### Authentication
-
-* Signup
-* Login
-* JWT authentication
-* BCrypt password hashing
-
-### Users
-
-* Create users
-* View users
-* User-specific data
-
-### Categories
-
-* Create category
-* View categories
-* Update category
-* Delete category
-
-### Transactions
-
-* Create transaction
-* View transactions
-* Update transaction
-* Delete transaction
-* Income / Expense tracking
-
-### Dashboard
-
-* Total Income
-* Total Expenses
-* Current Balance
-* Transaction History
-
----
-
-## Database
-
+### Data Model
 ```text
-User
-  │
-  │ 1 : N
-  ↓
-Transaction
-  │
-  │ N : 1
-  ↓
-Category
+User (1) ─── 👥 ─── (N) Transaction (N) ─── 🏷️ ─── (1) Category
 ```
 
-### User
-
-* id
-* name
-* email
-* password
-
-### Category
-
-* id
-* name
-* description
-
-### Transaction
-
-* id
-* amount
-* type
-* description
-* transactionDate
-* userId
-* categoryId
+* **User:** `id` (PK), `name`, `email`, `password`
+* **Category:** `id` (PK), `name`, `description`
+* **Transaction:** `id` (PK), `amount`, `type` (INCOME/EXPENSE), `description`, `transactionDate`, `userId` (FK), `categoryId` (FK)
 
 ---
 
-## API Endpoints
+## 🌐 API Endpoints
 
-### Authentication
+### 🔐 Authentication & Users
 
-| Method | Endpoint          | Description |
-| ------ | ----------------- | ----------- |
-| POST   | `/api/auth/login` | Login       |
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| POST | `/api/auth/signup` | Register a new user |
+| POST | `/api/auth/login` | Authenticate user & return JWT token |
+| GET | `/api/users/profile` | Get logged-in user profile |
 
-### Users
+### 🏷️ Categories
 
-| Method | Endpoint     | Description |
-| ------ | ------------ | ----------- |
-| POST   | `/api/users` | Create user |
-| GET    | `/api/users` | Get users   |
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| GET | `/api/categories` | Get all categories |
+| POST | `/api/categories` | Create a new category |
+| PUT | `/api/categories/{id}` | Update an existing category |
+| DELETE | `/api/categories/{id}` | Delete a category |
 
-### Categories
+### 💳 Transactions
 
-| Method | Endpoint               | Description     |
-| ------ | ---------------------- | --------------- |
-| GET    | `/api/categories`      | Get categories  |
-| POST   | `/api/categories`      | Create category |
-| PUT    | `/api/categories/{id}` | Update category |
-| DELETE | `/api/categories/{id}` | Delete category |
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| GET | `/api/transactions` | Get all transactions for the authenticated user |
+| GET | `/api/transactions/{id}` | Get specific transaction details |
+| POST | `/api/transactions` | Create a new transaction |
+| PUT | `/api/transactions/{id}` | Update a transaction |
+| DELETE | `/api/transactions/{id}` | Delete a transaction |
 
-### Transactions
-
-| Method | Endpoint                 | Description        |
-| ------ | ------------------------ | ------------------ |
-| GET    | `/api/transactions`      | Get transactions   |
-| GET    | `/api/transactions/{id}` | Get transaction    |
-| POST   | `/api/transactions`      | Create transaction |
-| PUT    | `/api/transactions/{id}` | Update transaction |
-| DELETE | `/api/transactions/{id}` | Delete transaction |
-
----
-
-## Example Request
-
+#### 🗒️ Example Request Body (`POST /api/transactions`)
 ```json
 {
   "userId": 1,
@@ -228,41 +111,44 @@ Category
 
 ---
 
-## Run Locally
+## 💻 Run Locally
 
-### Backend
+### 1. Prerequisites
+* JDK 17 or higher
+* Node.js (v18+) & npm
+* MySQL Server
 
+### 2. Database Setup
+Create a MySQL database named `fintrack`:
+```sql
+CREATE DATABASE fintrack;
+```
+Update `finance-backend/src/main/resources/application.properties` with your database username and password:
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/fintrack
+spring.datasource.username=YOUR_MYSQL_USERNAME
+spring.datasource.password=YOUR_MYSQL_PASSWORD
+```
+
+### 3. Start the Backend
 ```bash
 cd finance-backend
 mvn spring-boot:run
 ```
+*Backend Base URL:* `http://localhost:8082`
 
-Backend:
-
-```text
-http://localhost:8082
-```
-
-### Frontend
-
+### 4. Start the Frontend
 ```bash
 cd frontend/finance-frontend
 npm install
 npm run dev
 ```
-
-Frontend:
-
-```text
-http://localhost:5173
-```
+*Frontend Base URL:* `http://localhost:5173`
 
 ---
 
-## Author
+## 👤 Author
 
-**Vutla Dhanush**
-
-B.Tech – Computer Science and Engineering
-
-[GitHub](https://github.com/vutladhanush)
+**Vutla Dhanush**  
+🎓 B.Tech – Computer Science and Engineering  
+🌐 [GitHub Profile](https://github.com/vutladhanush)
