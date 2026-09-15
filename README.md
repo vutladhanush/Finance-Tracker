@@ -73,3 +73,73 @@ The application allows users to manage their income, expenses, categories, and f
 - Postman
 - Git
 - GitHub
+
+Yes — this is correct. ✅
+
+Add exactly this as **Section 5 — Application Architecture** in your `README.md`.
+
+One small improvement: your architecture diagram doesn't explicitly show the **Entity Layer**, even though you explain it below. That's okay, but for consistency I recommend this version:
+
+ 
+## Application Architecture
+
+The application follows a layered architecture in the Spring Boot backend.
+
+ 
+React.js Frontend
+        |
+        | HTTP / JSON
+        ↓
+Spring Boot REST API
+        |
+        ↓
+Controller Layer
+        |
+        ↓
+Service Layer
+        |
+        ↓
+Repository Layer
+        |
+        ↓
+JPA / Hibernate
+        |
+        ↓
+Entity Layer
+        |
+        ↓
+MySQL Database
+ 
+
+### Architecture Layers
+
+**Controller Layer**
+
+* Handles HTTP requests and responses
+* Provides REST API endpoints
+* Receives and validates client requests
+
+**Service Layer**
+
+* Contains business logic
+* Processes application operations
+* Communicates between controllers and repositories
+
+**Repository Layer**
+
+* Handles database operations
+* Uses Spring Data JPA
+* Communicates with the MySQL database
+
+**Entity Layer**
+
+* Represents database tables
+* Defines relationships between users, categories, and transactions
+
+**Security Layer**
+
+* Handles user authentication
+* Generates and validates JWT tokens
+* Protects secured API endpoints
+ 
+
