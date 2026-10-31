@@ -17,7 +17,7 @@ FinTrack is an expense tracker backend built with **Java, Spring Boot and MySQL*
 ## 📸 Screenshots
 
 ### Login
-![Login](screenshots/login-page.png)
+![Login](screenshots/loginpage.png)
 
 ### Signup
 ![Signup](screenshots/signup-page.png)
