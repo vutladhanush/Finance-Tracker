@@ -17,7 +17,11 @@ FinTrack is a secure expense tracker backend built with **Java, Spring Boot, Spr
 ## 📸 API Testing (Postman)
 
 ### Login (JWT response)
-![Login API](screenshots/postman-login.png)
+![Login API](screenshots/login-page.png)
+
+### Login (JWT response)
+![Login API](screenshots/signup-page.png)
+
 
 ### Create Transaction
 ![Create Transaction](screenshots/postman-create-transaction.png)
