@@ -1,4 +1,4 @@
-# FinTrack: Expense Tracker REST API
+# Finance Tracker REST API
 
 ![Java](https://img.shields.io/badge/Java-17-orange)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-Backend-brightgreen)
